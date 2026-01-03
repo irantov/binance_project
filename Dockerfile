@@ -11,4 +11,4 @@ COPY . .
 
 EXPOSE 8888
 
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"] #added --allow-root so that it can run in docker container and not as a normal user
