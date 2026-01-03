@@ -1,0 +1,9 @@
+python-binance
+pandas
+websocket-client
+sqlalchemy
+psycopg2-binary
+fastapi
+uvicorn
+matplotlib
+notebook
