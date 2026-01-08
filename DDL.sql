@@ -3,7 +3,7 @@ ts timestamptz,
 price double precision,
 instrument text,
 data_source text
-)
+);
 
 CREATE TABLE trades (
     ts timestamptz NOT null,         
@@ -60,3 +60,4 @@ SELECT
 FROM candles_1m;
 
 CREATE INDEX idx_candles_1m_ma_bucket_brin ON candles_1m_ma USING BRIN(bucket);
+
