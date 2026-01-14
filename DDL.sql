@@ -1,10 +1,3 @@
-create UNLOGGED table trades_stage (
-ts timestamptz,
-price double precision,
-instrument text,
-data_source text
-)
-
 CREATE TABLE trades (
     ts timestamptz NOT null,         
     price numeric(18,8) NOT NULL,
@@ -13,7 +6,10 @@ CREATE TABLE trades (
     primary key (ts, instrument, data_source)
 );
 SELECT create_hypertable('trades', 'ts');
+
 CREATE INDEX idx_trades_ts_brin ON trades USING BRIN (ts);
+
+SELECT add_retention_policy('trades', INTERVAL '1 year');
 
 CREATE MATERIALIZED VIEW candles_1m
 WITH (timescaledb.continuous) AS
