@@ -3,7 +3,7 @@ CREATE TABLE trades (
     price numeric(18,8) NOT NULL,
     instrument text NOT null default 'BTCUSD',
     data_source text,
-    primary key (ts, instrument, data_source)
+    primary key (ts, price, instrument, data_source)
 );
 SELECT create_hypertable('trades', 'ts');
 
@@ -56,3 +56,4 @@ SELECT
 FROM candles_1m;
 
 CREATE INDEX idx_candles_1m_ma_bucket_brin ON candles_1m_ma USING BRIN(bucket);
+
